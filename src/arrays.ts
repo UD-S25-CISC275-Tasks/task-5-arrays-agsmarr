@@ -25,7 +25,13 @@ export function tripleNumbers(numbers: number[]): number[] {
     let tripled: number[] = numbers.map((num: number): number => num * 3);
     return tripled;
 }
-
+//helper function
+export function canConvert(num: number): boolean {
+    if (isNaN(num)) {
+        return false;
+    }
+    return true;
+}
 /**
  * Consume an array of strings and convert them to integers. If
  * the number cannot be parsed as an integer, convert it to 0 instead.
@@ -37,12 +43,7 @@ export function stringsToIntegers(numbers: string[]): number[] {
     );
     return ints;
 }
-export function canConvert(num: number): boolean {
-    if (isNaN(num)) {
-        return false;
-    }
-    return true;
-}
+
 /**
  * Consume an array of strings and return them as numbers. Note that
  * the strings MAY have "$" symbols at the beginning, in which case
@@ -76,7 +77,13 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
     );
     return exclaim;
 };
-
+//helper function
+export function isShort(word: string): boolean {
+    if (word.length < 4) {
+        return true;
+    }
+    return false;
+}
 /**
  * Consumes an array of words and returns the number of words that are LESS THAN
  * 4 letters long.
@@ -89,12 +96,6 @@ export function countShortWords(words: string[]): number {
         0,
     );
     return sum;
-}
-export function isShort(word: string): boolean {
-    if (word.length < 4) {
-        return true;
-    }
-    return false;
 }
 
 /**
@@ -141,6 +142,7 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
+    //WORKING
     let firstNegative: number = values.findIndex((value: number) => value < 0);
     let sum: number = values
         .slice(0, firstNegative === -1 ? values.length : firstNegative)
